@@ -12,11 +12,12 @@ export default function handler(req, res) {
       storeName: "Val Entinesday Shop",
       adminEmail: "thegreatest@val.me",
       adminUname: "ValTheBeautiful",
-      password: "VmtCc1ZHZ3pRbVUwZFhReFpuVnNJUT09"
+      password: "VmtCc1ZHZ3pRbVUwZFhReFpuVnNJUT09",
       flag: "FLAG{Val_Hates_Cookies}"
     }
   });
 }
+
 
 
 
