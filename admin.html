@@ -13,18 +13,21 @@
     <h1>Admin Panel</h1>
     <div id="content"></div>
       <script>
-        // Read cookies (simple version)
-        const cookies = document.cookie;
-        const isAdmin = cookies.includes("role=admin");
+      const cookies = document.cookie;
+      const isAdmin = cookies.includes("role=admin");
     
-        if (isAdmin) {
-          document.getElementById("content").innerHTML =
-            "<p>Welcome, admin.</p>";
-        } else {
-          document.getElementById("content").innerHTML =
-            "<p>You are not authorized to view this page.</p>";
-        }
-      </script>
+      if (!isAdmin) {
+        document.getElementById("content").innerHTML =
+          "<p>You are not authorized to view this page.</p>";
+      } else {
+        fetch("/api/admin/export")
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById("content").innerHTML =
+              "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+          });
+      }
+    </script>
 </body>
 <hr>
 <footer>
