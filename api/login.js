@@ -1,6 +1,13 @@
 export default function handler(req, res) {
-    res.json({ success: false });
+    const role = "user";
+
+    res.setHeader(
+        "Set-Cookie",
+        `role=${role}; Path=/`
+    );
+
+    res.json({
+        success: false,
+        message: "Invalid Credentials!"
+    });
 }
-
-
-/// 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
