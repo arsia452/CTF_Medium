@@ -11,9 +11,20 @@
 <hr>
 <body>
     <h1>Admin Panel</h1>
-    <section>
-        <p>You are not authorized to access this page.</p>
-    </section>
+    <div id="content"></div>
+      <script>
+        // Read cookies (simple version)
+        const cookies = document.cookie;
+        const isAdmin = cookies.includes("role=admin");
+    
+        if (isAdmin) {
+          document.getElementById("content").innerHTML =
+            "<p>Welcome, admin.</p>";
+        } else {
+          document.getElementById("content").innerHTML =
+            "<p>You are not authorized to view this page.</p>";
+        }
+      </script>
 </body>
 <hr>
 <footer>
